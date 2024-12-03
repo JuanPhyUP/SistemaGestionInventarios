@@ -1,71 +1,42 @@
+import java.util.ArrayList;
 
-public class Producto {
-    // Atributos de la clase Producto
-    private int id;
-    private String nombre;
-    private int cantidad;
-    private double precio;
+public class Inventario {
+    //Atributo
+    private ArrayList<Producto> productos;
 
+    //Metodo constructor
+    public Inventario(){
+        productos = new ArrayList<>();
+    }
 
+    //Metodo para agregar productos
     /**
-     * Constructor de la clase Producto.
+     * Agrega un nuevo producto al inventario, validando que no exista un producto con el mismo ID.
      *
-     * @param id       El ID del producto.
-     * @param nombre   El nombre del producto.
+     * @param id El ID del producto.
+     * @param nombre El nombre del producto.
      * @param cantidad La cantidad del producto.
-     * @param precio   El precio del producto.
+     * @param precio El precio del producto.
      */
+    public void agregarProducto(int id, String nombre, int cantidad, double precio){
+        // Validar si ya existe un producto con el mismo ID
+        for (Producto producto : productos) {
+            if (producto.getId() == id) {
+                System.out.println("Error: Ya existe un producto con el ID " + id);
+                return; // Si se encuentra un duplicado, se sale del método
+            }
+        }
 
-    // Constructor
-    public Producto(int id, String nombre, int cantidad, double precio) {
-
-            this.id = id;
-            this.nombre = nombre;
-            this.cantidad = cantidad;
-            this.precio = precio;
-
+        // Si no se encontró un duplicado, se crea el nuevo producto y se agrega al inventario
+        Producto nuevoProducto = new Producto (id,nombre, cantidad, precio);
+        productos.add(nuevoProducto);
     }
 
-    // Getters y Setters
-    public int getId() {
-        return id;
-    }
+    public void consultarInventario (){
+        if (productos.isEmpty()){
+            System.out.println("El inventario está vacío.");
+        }else{
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    // Método para mostrar información del producto
-    public void mostrarInformacion() {
-        System.out.println("ID: " + id);
-        System.out.println("Nombre: " + nombre);
-        System.out.println("Cantidad: " + cantidad);
-        System.out.println("Precio: $" + precio);
-
+        }
     }
 }
-
