@@ -19,14 +19,15 @@ public class Inventario {
      * @param precio El precio del producto.
      */
     public void agregarProducto(int id, String nombre, int cantidad, double precio){
-        /** Validar si ya existe un producto con el mismo ID
-         * for (Producto producto : productos) {
-         *    if (producto.getId() == id) {
-         *       System.out.println("Error: Ya existe un producto con el ID " + id);
-         *         return;
-         *    }
-         * }
-         */
+        // Validar si ya existe un producto con el mismo ID
+        for (Producto producto : productos) {
+            if (producto.getId() == id) {
+                System.out.println("Error: Ya existe un producto con el ID " + id);
+                return; // Si se encuentra un duplicado, se sale del método
+            }
+        }
+
+        // Si no se encontró un duplicado, se crea el nuevo producto y se agrega al inventario
         Producto nuevoProducto = new Producto (id,nombre, cantidad, precio);
         productos.add(nuevoProducto);
     }
@@ -38,6 +39,4 @@ public class Inventario {
 
         }
     }
-
-
 }
