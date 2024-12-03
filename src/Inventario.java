@@ -10,6 +10,14 @@ public class Inventario {
     }
 
     //Metodo para agregar productos
+    /**
+     * Agrega un nuevo producto al inventario, validando que no exista un producto con el mismo ID.
+     *
+     * @param id El ID del producto.
+     * @param nombre El nombre del producto.
+     * @param cantidad La cantidad del producto.
+     * @param precio El precio del producto.
+     */
     public void agregarProducto(int id, String nombre, int cantidad, double precio){
         /** Validar si ya existe un producto con el mismo ID
          * for (Producto producto : productos) {
