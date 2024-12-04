@@ -6,6 +6,7 @@ public class Producto {
     private String nombre;
     private int cantidad;
     private double precio;
+    private String descripcion;
 
 
     /**
@@ -67,6 +68,9 @@ public class Producto {
         System.out.println("Cantidad: " + cantidad);
         System.out.println("Precio: $" + precio);
 
+    }
+    public String getDescripcion() {
+        return descripcion;
     }
 }
 

@@ -2,8 +2,8 @@ package com.mycompany.proyectofinal;
 
 import javax.swing.*;
 import java.awt.*;
-
-import com.mycompany.proyectofinal.AñadirProducto;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Menu extends JFrame {
     private GestorDeProductos gestorDeProductos; // Agregar gestor de productos
@@ -13,95 +13,93 @@ public class Menu extends JFrame {
         initComponents();
     }
 
-
     private void initComponents() {
-        // Panel principal
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridBagLayout());
-        panel.setBackground(new Color(245, 245, 245)); // Fondo gris muy claro
+        setTitle("Gestor de Inventario");
+        setSize(300, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(10, 10, 10, 10); // Espaciado entre componentes
 
         // Título del menú
         JLabel titleLabel = new JLabel("GESTOR DE INVENTARIO", JLabel.CENTER);
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 18));
-        titleLabel.setForeground(new Color(0, 0, 0)); // Texto gris oscuro
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
-        gbc.insets = new Insets(20, 10, 20, 10);
-        panel.add(titleLabel, gbc);
+        add(titleLabel, gbc);
 
-        // Botones
-        JButton addButton = createButton("Añadir producto", new Color(192, 192, 192));
-        JButton editButton = createButton("Editar producto", new Color(192, 192, 192));
-        JButton deleteButton = createButton("Eliminar producto", new Color(192, 192, 192));
-        JButton viewButton = createButton("Ver inventario", new Color(192, 192, 192));
-        JButton valueButton = createButton("Valor inventario", new Color(192, 192, 192));
-        JButton exitButton = createButton("Salir", new Color(128, 128, 128));
-
-        // Agregar ActionListener al botón "Añadir producto"
-        addButton.addActionListener(e -> {
-            AñadirProducto añadirProducto = new AñadirProducto(gestorDeProductos);
-            añadirProducto.setVisible(true);
+        // Botón para añadir producto
+        JButton addButton = new JButton("Añadir producto");
+        addButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AñadirProducto añadirProducto = new AñadirProducto(gestorDeProductos);
+                añadirProducto.setVisible(true);
+            }
         });
-
-        // Distribución en el panel
-        gbc.gridwidth = 1;
-
+        gbc.gridwidth = 1; // Restablecer gridwidth
         gbc.gridx = 0;
         gbc.gridy = 1;
-        panel.add(addButton, gbc);
+        add(addButton, gbc);
 
+        // Botón para ver inventario
+        JButton viewButton = new JButton("Ver inventario");
+        viewButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        viewButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ListarProducto listarProductos = new ListarProducto(gestorDeProductos);
+                listarProductos.setVisible(true);
+            }
+        });
         gbc.gridx = 1;
         gbc.gridy = 1;
-        panel.add(viewButton, gbc);
+        add(viewButton, gbc);
 
+        // Botón para editar producto
+        JButton editButton = new JButton("Editar producto");
+        editButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         gbc.gridx = 0;
         gbc.gridy = 2;
-        panel.add(editButton, gbc);
+        add(editButton, gbc);
 
+        // Botón para calcular valor del inventario
+        JButton valueButton = new JButton("Valor inventario");
+        valueButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         gbc.gridx = 1;
         gbc.gridy = 2;
-        panel.add(valueButton, gbc);
+        add(valueButton, gbc);
 
+        // Botón para eliminar producto
+        JButton deleteButton = new JButton("Eliminar producto");
+        deleteButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         gbc.gridx = 0;
         gbc.gridy = 3;
-        panel.add(deleteButton, gbc);
+        add(deleteButton, gbc);
 
+        // Botón para salir
+        JButton exitButton = new JButton("Salir");
+        exitButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
         gbc.gridx = 1;
         gbc.gridy = 3;
-        panel.add(exitButton, gbc);
+        add(exitButton, gbc);
 
         // Configuración de la ventana
-        this.add(panel);
-        this.setTitle("Gestor de com.mycompany.proyectofinal.Inventario");
-        this.setSize(400, 300);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
+        setLocationRelativeTo(null); // Centrar la ventana
+        setResizable(false); // No permitir redimensionar
     }
-
-    /**
-     * Crea un botón con estilo predeterminado.
-     *
-     * @param text  Texto del botón
-     * @param color Color de fondo del botón
-     * @return JButton configurado
-     */
-    private JButton createButton(String text, Color color) {
-        JButton button = new JButton(text);
-        button.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        button.setBackground(color);
-        button.setForeground(Color.BLACK);
-        button.setFocusPainted(false);
-        button.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255))); // Borde gris suave
-        return button;
-    }
-
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new Menu().setVisible(true);
-        });
+        // Crear una instancia del menú y hacerlo visible
+        Menu menu = new Menu();
+        menu.setVisible(true);
     }
 }

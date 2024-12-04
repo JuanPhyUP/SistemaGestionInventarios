@@ -1,8 +1,9 @@
 package com.mycompany.proyectofinal;
-
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.*;
 
 public class GestorDeProductos {
     private List<Producto> productos;
@@ -62,6 +63,25 @@ public class GestorDeProductos {
 
     public List<Producto> getProductos() {
         return productos;
+    }
+    // Método para ordenar productos alfabéticamente
+    public void ordenarProductosAlfabeticamente() {
+        Collections.sort(productos, new Comparator<Producto>() {
+            @Override
+            public int compare(Producto p1, Producto p2) {
+                return p1.getNombre().compareToIgnoreCase(p2.getNombre());
+            }
+        });
+    }
+
+    // Método para ordenar productos por precio
+    public void ordenarProductosPorPrecio() {
+        Collections.sort(productos, new Comparator<Producto>() {
+            @Override
+            public int compare(Producto p1, Producto p2) {
+                return Double.compare(p1.getPrecio(), p2.getPrecio());
+            }
+        });
     }
     /*
     // Main para probar gestor de productos
