@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Menú principal del gestor de inventario.
+ * Menú principal del gestor de inventario con diseño más sobrio.
  */
 public class Menu extends JFrame {
 
@@ -16,14 +16,14 @@ public class Menu extends JFrame {
         // Panel principal
         JPanel panel = new JPanel();
         panel.setLayout(new GridBagLayout());
-        panel.setBackground(new Color(240, 248, 255)); // Fondo claro y agradable
+        panel.setBackground(new Color(245, 245, 245)); // Fondo gris muy claro
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         // Título del menú
-        JLabel titleLabel = new JLabel("BIENVENIDO AL GESTOR DEL INVENTARIO", JLabel.CENTER);
+        JLabel titleLabel = new JLabel("GESTOR DE INVENTARIO", JLabel.CENTER);
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 18));
-        titleLabel.setForeground(new Color(0, 102, 204));
+        titleLabel.setForeground(new Color(0, 0, 0)); // Texto gris oscuro
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
@@ -31,12 +31,12 @@ public class Menu extends JFrame {
         panel.add(titleLabel, gbc);
 
         // Botones
-        JButton addButton = createButton("Añadir producto", new Color(51, 204, 51));
-        JButton editButton = createButton("Editar producto", new Color(255, 204, 0));
-        JButton deleteButton = createButton("Eliminar producto", new Color(255, 51, 51));
-        JButton viewButton = createButton("Ver inventario", new Color(102, 153, 255));
-        JButton valueButton = createButton("Valor inventario", new Color(153, 102, 255));
-        JButton exitButton = createButton("Salir", new Color(192, 192, 192));
+        JButton addButton = createButton("Añadir producto", new Color(192, 192, 192)); // Azul sobrio
+        JButton editButton = createButton("Editar producto", new Color(192, 192, 192)); // Gris claro
+        JButton deleteButton = createButton("Eliminar producto", new Color(192, 192, 192));
+        JButton viewButton = createButton("Ver inventario", new Color(192, 192, 192));
+        JButton valueButton = createButton("Valor inventario", new Color(192, 192, 192));
+        JButton exitButton = createButton("Salir", new Color(128, 128, 128)); // Gris medio
 
         // Distribución en el panel
         gbc.gridwidth = 1;
@@ -85,9 +85,9 @@ public class Menu extends JFrame {
         JButton button = new JButton(text);
         button.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         button.setBackground(color);
-        button.setForeground(Color.WHITE);
+        button.setForeground(Color.BLACK);
         button.setFocusPainted(false);
-        button.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY));
+        button.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255))); // Borde gris suave
         return button;
     }
 
