@@ -8,7 +8,10 @@ import java.awt.*;
  */
 public class AñadirProducto extends JFrame {
 
-    public AñadirProducto() {
+    private final GestorDeProductos gestorDeProductos;
+
+    public AñadirProducto(GestorDeProductos gestor) {
+        this.gestorDeProductos = gestor;
         initComponents();
     }
 
@@ -21,7 +24,7 @@ public class AñadirProducto extends JFrame {
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         // Título
-        JLabel titleLabel = new JLabel("Añadir Producto", JLabel.CENTER);
+        JLabel titleLabel = new JLabel("Añadir com.mycompany.proyectofinal.Producto", JLabel.CENTER);
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 18));
         titleLabel.setForeground(new Color(50, 50, 50)); // Texto gris oscuro
         gbc.gridx = 0;
@@ -81,7 +84,7 @@ public class AñadirProducto extends JFrame {
 
         // Configuración de la ventana
         this.add(panel);
-        this.setTitle("Añadir Producto");
+        this.setTitle("Añadir com.mycompany.proyectofinal.Producto");
         this.setSize(400, 300);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
@@ -90,15 +93,23 @@ public class AñadirProducto extends JFrame {
         // Listeners para botones
         saveButton.addActionListener(e -> {
             String nombre = nameField.getText().trim();
-            String cantidad = quantityField.getText().trim();
-            String precio = priceField.getText().trim();
+            String cantidadStr = quantityField.getText().trim();
+            String precioStr = priceField.getText().trim();
 
-            if (nombre.isEmpty() || cantidad.isEmpty() || precio.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.", "Error", JOptionPane.ERROR_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(this, "Producto añadido: " + nombre, "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                // Aquí podrías añadir lógica para guardar el producto en una base de datos o lista.
-                this.dispose(); // Cierra la ventana tras guardar
+            try {
+                int cantidad = Integer.parseInt(cantidadStr);
+                double precio = Double.parseDouble(precioStr);
+
+                if (nombre.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "El nombre no puede estar vacío.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    Producto producto = new Producto(gestorDeProductos.getProductos().size() + 1, nombre, cantidad, precio);
+                    gestorDeProductos.agregarProducto(producto);
+                    JOptionPane.showMessageDialog(this, "com.mycompany.proyectofinal.Producto añadido con éxito.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+                    this.dispose();
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(this, "Cantidad y precio deben ser valores numéricos.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
 
@@ -120,11 +131,5 @@ public class AñadirProducto extends JFrame {
         button.setFocusPainted(false);
         button.setBorder(BorderFactory.createLineBorder(new Color(169, 169, 169))); // Borde gris suave
         return button;
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new AñadirProducto().setVisible(true);
-        });
     }
 }

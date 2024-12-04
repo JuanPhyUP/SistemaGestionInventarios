@@ -1,6 +1,7 @@
+package com.mycompany.proyectofinal;
 
 public class Producto {
-    // Atributos de la clase Producto
+    // Atributos de la clase com.mycompany.proyectofinal.Producto
     private int id;
     private String nombre;
     private int cantidad;
@@ -8,7 +9,7 @@ public class Producto {
 
 
     /**
-     * Constructor de la clase Producto.
+     * Constructor de la clase com.mycompany.proyectofinal.Producto.
      *
      * @param id       El ID del producto.
      * @param nombre   El nombre del producto.

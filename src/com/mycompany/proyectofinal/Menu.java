@@ -3,14 +3,16 @@ package com.mycompany.proyectofinal;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Menú principal del gestor de inventario con diseño más sobrio.
- */
+import com.mycompany.proyectofinal.AñadirProducto;
+
 public class Menu extends JFrame {
+    private GestorDeProductos gestorDeProductos; // Agregar gestor de productos
 
     public Menu() {
+        this.gestorDeProductos = new GestorDeProductos(); // Inicializar gestor de productos
         initComponents();
     }
+
 
     private void initComponents() {
         // Panel principal
@@ -31,12 +33,18 @@ public class Menu extends JFrame {
         panel.add(titleLabel, gbc);
 
         // Botones
-        JButton addButton = createButton("Añadir producto", new Color(192, 192, 192)); // Azul sobrio
-        JButton editButton = createButton("Editar producto", new Color(192, 192, 192)); // Gris claro
+        JButton addButton = createButton("Añadir producto", new Color(192, 192, 192));
+        JButton editButton = createButton("Editar producto", new Color(192, 192, 192));
         JButton deleteButton = createButton("Eliminar producto", new Color(192, 192, 192));
         JButton viewButton = createButton("Ver inventario", new Color(192, 192, 192));
         JButton valueButton = createButton("Valor inventario", new Color(192, 192, 192));
-        JButton exitButton = createButton("Salir", new Color(128, 128, 128)); // Gris medio
+        JButton exitButton = createButton("Salir", new Color(128, 128, 128));
+
+        // Agregar ActionListener al botón "Añadir producto"
+        addButton.addActionListener(e -> {
+            AñadirProducto añadirProducto = new AñadirProducto(gestorDeProductos);
+            añadirProducto.setVisible(true);
+        });
 
         // Distribución en el panel
         gbc.gridwidth = 1;
@@ -67,7 +75,7 @@ public class Menu extends JFrame {
 
         // Configuración de la ventana
         this.add(panel);
-        this.setTitle("Gestor de Inventario");
+        this.setTitle("Gestor de com.mycompany.proyectofinal.Inventario");
         this.setSize(400, 300);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);

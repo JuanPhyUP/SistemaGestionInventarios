@@ -1,4 +1,7 @@
+package com.mycompany.proyectofinal;
+
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class GestorDeProductos {
@@ -43,9 +46,9 @@ public class GestorDeProductos {
             productoAModificar.setNombre(nuevoNombre);
             productoAModificar.setCantidad(nuevaCantidad);
             productoAModificar.setPrecio(nuevoPrecio);
-            System.out.println("Producto modificado exitosamente.");
+            System.out.println("com.mycompany.proyectofinal.Producto modificado exitosamente.");
         } else {
-            System.out.println("Producto con ID " + id + " no encontrado.");
+            System.out.println("com.mycompany.proyectofinal.Producto con ID " + id + " no encontrado.");
         }
     }public double calcularValorTotal() {
         double valorTotal = 0;
@@ -56,15 +59,19 @@ public class GestorDeProductos {
 
         return valorTotal;
     }
+
+    public List<Producto> getProductos() {
+        return productos;
+    }
     /*
     // Main para probar gestor de productos
     public static void main(String[] args) {
-        GestorDeProductos gestor = new GestorDeProductos();
+        com.mycompany.proyectofinal.GestorDeProductos gestor = new com.mycompany.proyectofinal.GestorDeProductos();
 
         // Agregar productos
-        gestor.agregarProducto(new Producto(1, "Producto A", 10, 15.50));
-        gestor.agregarProducto(new Producto(2, "Producto B", 5, 25.00));
-        gestor.agregarProducto(new Producto(3, "Producto C", 20, 10.75));
+        gestor.agregarProducto(new com.mycompany.proyectofinal.Producto(1, "com.mycompany.proyectofinal.Producto A", 10, 15.50));
+        gestor.agregarProducto(new com.mycompany.proyectofinal.Producto(2, "com.mycompany.proyectofinal.Producto B", 5, 25.00));
+        gestor.agregarProducto(new com.mycompany.proyectofinal.Producto(3, "com.mycompany.proyectofinal.Producto C", 20, 10.75));
 
         // Listar productos
         gestor.listarProductos();
@@ -72,18 +79,18 @@ public class GestorDeProductos {
     //////////////////////////////////////////////////////////////////////
     //Main para probar el modificar producto
     public static void main(String[] args) {
-        GestorDeProductos gestor = new GestorDeProductos();
+        com.mycompany.proyectofinal.GestorDeProductos gestor = new com.mycompany.proyectofinal.GestorDeProductos();
 
         // Agregar productos
-        gestor.agregarProducto(new Producto(1, "Producto A", 10, 15.50));
-        gestor.agregarProducto(new Producto(2, "Producto B", 5, 25.00));
+        gestor.agregarProducto(new com.mycompany.proyectofinal.Producto(1, "com.mycompany.proyectofinal.Producto A", 10, 15.50));
+        gestor.agregarProducto(new com.mycompany.proyectofinal.Producto(2, "com.mycompany.proyectofinal.Producto B", 5, 25.00));
 
         // Listar productos antes de la modificación
         System.out.println("Antes de la modificación:");
         gestor.listarProductos();
 
         // Modificar el producto con ID 1
-        gestor.modificarProducto(1, "Producto Modificado", 20, 18.75);
+        gestor.modificarProducto(1, "com.mycompany.proyectofinal.Producto Modificado", 20, 18.75);
 
         // Listar productos después de la modificación
         System.out.println("Después de la modificación:");
@@ -91,12 +98,12 @@ public class GestorDeProductos {
     }
     //////////////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-    GestorDeProductos gestor = new GestorDeProductos();
+    com.mycompany.proyectofinal.GestorDeProductos gestor = new com.mycompany.proyectofinal.GestorDeProductos();
 
     // Agregar productos
-    gestor.agregarProducto(new Producto(1, "Producto A", 10, 15.50));
-    gestor.agregarProducto(new Producto(2, "Producto B", 5, 25.00));
-    gestor.agregarProducto(new Producto(3, "Producto C", 20, 10.75));
+    gestor.agregarProducto(new com.mycompany.proyectofinal.Producto(1, "com.mycompany.proyectofinal.Producto A", 10, 15.50));
+    gestor.agregarProducto(new com.mycompany.proyectofinal.Producto(2, "com.mycompany.proyectofinal.Producto B", 5, 25.00));
+    gestor.agregarProducto(new com.mycompany.proyectofinal.Producto(3, "com.mycompany.proyectofinal.Producto C", 20, 10.75));
 
     // Listar productos
     gestor.listarProductos();

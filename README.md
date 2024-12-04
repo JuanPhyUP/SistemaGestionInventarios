@@ -1,4 +1,4 @@
-# Sistema de Gestión de Inventario
+# Sistema de Gestión de com.mycompany.proyectofinal.Inventario
 
 Este proyecto tiene como objetivo desarrollar un sistema que permita gestionar el inventario de productos en una tienda
 o almacén. El programa permitirá al usuario registrar productos, consultar cantidades, actualizar inventario y eliminar
@@ -20,12 +20,12 @@ productos, todo a través de un menú interactivo.
 - Manejo de entrada y salida de datos en consola.
 
 ## Estructura de Clases
-### Clase `Producto`
+### Clase `com.mycompany.proyectofinal.Producto`
 - **Atributos:** `id`, `nombre`, `cantidad`, `precio`.
 - **Métodos:** Constructor, getters y setters.
 
-### Clase `Inventario`
-- **Atributo:** `ArrayList<Producto>` (en Java) o `List[Producto]` (en Python).
+### Clase `com.mycompany.proyectofinal.Inventario`
+- **Atributo:** `ArrayList<com.mycompany.proyectofinal.Producto>` (en Java) o `List[com.mycompany.proyectofinal.Producto]` (en Python).
 - **Métodos:** `agregarProducto`, `consultarInventario`, `eliminarProducto`, `calcularValorTotal`.
 
 
