@@ -76,6 +76,13 @@ public class Menu extends JFrame {
         // Botón para eliminar producto
         JButton deleteButton = new JButton("Eliminar producto");
         deleteButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                EliminarProducto eliminarProducto = new EliminarProducto(gestorDeProductos);
+              eliminarProducto.setVisible(true);
+            }
+        });
         gbc.gridx = 0;
         gbc.gridy = 3;
         add(deleteButton, gbc);

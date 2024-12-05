@@ -10,6 +10,7 @@ public class GestorDeProductos {
 
     // Constructor
     public GestorDeProductos() {
+
         this.productos = new ArrayList<>();
     }
 
@@ -83,56 +84,9 @@ public class GestorDeProductos {
             }
         });
     }
-    /*
-    // Main para probar gestor de productos
-    public static void main(String[] args) {
-        com.mycompany.proyectofinal.GestorDeProductos gestor = new com.mycompany.proyectofinal.GestorDeProductos();
-
-        // Agregar productos
-        gestor.agregarProducto(new com.mycompany.proyectofinal.Producto(1, "com.mycompany.proyectofinal.Producto A", 10, 15.50));
-        gestor.agregarProducto(new com.mycompany.proyectofinal.Producto(2, "com.mycompany.proyectofinal.Producto B", 5, 25.00));
-        gestor.agregarProducto(new com.mycompany.proyectofinal.Producto(3, "com.mycompany.proyectofinal.Producto C", 20, 10.75));
-
-        // Listar productos
-        gestor.listarProductos();
+    //Método eliminar producto
+    public void borrarProducto(int id) {
+        productos.removeIf(producto -> producto.getId() == id); // Eliminar el producto con el ID especificado
     }
-    //////////////////////////////////////////////////////////////////////
-    //Main para probar el modificar producto
-    public static void main(String[] args) {
-        com.mycompany.proyectofinal.GestorDeProductos gestor = new com.mycompany.proyectofinal.GestorDeProductos();
-
-        // Agregar productos
-        gestor.agregarProducto(new com.mycompany.proyectofinal.Producto(1, "com.mycompany.proyectofinal.Producto A", 10, 15.50));
-        gestor.agregarProducto(new com.mycompany.proyectofinal.Producto(2, "com.mycompany.proyectofinal.Producto B", 5, 25.00));
-
-        // Listar productos antes de la modificación
-        System.out.println("Antes de la modificación:");
-        gestor.listarProductos();
-
-        // Modificar el producto con ID 1
-        gestor.modificarProducto(1, "com.mycompany.proyectofinal.Producto Modificado", 20, 18.75);
-
-        // Listar productos después de la modificación
-        System.out.println("Después de la modificación:");
-        gestor.listarProductos();
-    }
-    //////////////////////////////////////////////////////////////////////
-    public static void main(String[] args) {
-    com.mycompany.proyectofinal.GestorDeProductos gestor = new com.mycompany.proyectofinal.GestorDeProductos();
-
-    // Agregar productos
-    gestor.agregarProducto(new com.mycompany.proyectofinal.Producto(1, "com.mycompany.proyectofinal.Producto A", 10, 15.50));
-    gestor.agregarProducto(new com.mycompany.proyectofinal.Producto(2, "com.mycompany.proyectofinal.Producto B", 5, 25.00));
-    gestor.agregarProducto(new com.mycompany.proyectofinal.Producto(3, "com.mycompany.proyectofinal.Producto C", 20, 10.75));
-
-    // Listar productos
-    gestor.listarProductos();
-
-    // Calcular y mostrar el valor total del inventario
-    double valorTotal = gestor.calcularValorTotal();
-    System.out.println("Valor total del inventario: $" + valorTotal);
 }
 
-    //*/
-
-}
