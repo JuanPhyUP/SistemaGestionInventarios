@@ -1,16 +1,15 @@
 package com.mycompany.proyectofinal;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.*;
 
 public class GestorDeProductos {
     private List<Producto> productos;
 
     // Constructor
     public GestorDeProductos() {
-
         this.productos = new ArrayList<>();
     }
 
@@ -19,52 +18,33 @@ public class GestorDeProductos {
         productos.add(producto);
     }
 
-    // Método para listar todos los productos
-    public void listarProductos() {
-        if (productos.isEmpty()) {
-            System.out.println("No hay productos disponibles.");
-        } else {
-            System.out.println("Lista de productos:");
-            for (Producto producto : productos) {
-                System.out.println("ID: " + producto.getId() +
-                        ", Nombre: " + producto.getNombre() +
-                        ", Cantidad: " + producto.getCantidad() +
-                        ", Precio: $" + producto.getPrecio());
-            }
-        }
-    }public void modificarProducto(int id, String nuevoNombre, int nuevaCantidad, double nuevoPrecio) {
-        Producto productoAModificar = null;
-
-        // Buscar el producto por ID
+    // Método para editar un producto
+    public void editarProducto(int id, String nuevoNombre, double nuevoPrecio, int nuevaCantidad) {
         for (Producto producto : productos) {
             if (producto.getId() == id) {
-                productoAModificar = producto;
-                break;
+                producto.setNombre(nuevoNombre); // Actualiza el nombre
+                producto.setPrecio(nuevoPrecio); // Actualiza el precio
+                producto.setCantidad(nuevaCantidad); // Actualiza la cantidad
+                return; // Salir después de actualizar el producto
             }
         }
+        throw new IllegalArgumentException("Producto con ID " + id + " no encontrado.");
+    }
 
-        // Modificar los atributos si el producto fue encontrado
-        if (productoAModificar != null) {
-            productoAModificar.setNombre(nuevoNombre);
-            productoAModificar.setCantidad(nuevaCantidad);
-            productoAModificar.setPrecio(nuevoPrecio);
-            System.out.println("com.mycompany.proyectofinal.Producto modificado exitosamente.");
-        } else {
-            System.out.println("com.mycompany.proyectofinal.Producto con ID " + id + " no encontrado.");
-        }
-    }public double calcularValorTotal() {
+    // Método para calcular el valor total del inventario
+    public double calcularValorTotal() {
         double valorTotal = 0;
-
         for (Producto producto : productos) {
             valorTotal += producto.getCantidad() * producto.getPrecio();
         }
-
         return valorTotal;
     }
 
+    // Método para obtener todos los productos
     public List<Producto> getProductos() {
         return productos;
     }
+
     // Método para ordenar productos alfabéticamente
     public void ordenarProductosAlfabeticamente() {
         Collections.sort(productos, new Comparator<Producto>() {
@@ -84,9 +64,11 @@ public class GestorDeProductos {
             }
         });
     }
-    //Método eliminar producto
+
+    // Método para eliminar un producto
     public void borrarProducto(int id) {
-        productos.removeIf(producto -> producto.getId() == id); // Eliminar el producto con el ID especificado
+        productos.removeIf(producto -> producto.getId() == id);
     }
 }
+
 

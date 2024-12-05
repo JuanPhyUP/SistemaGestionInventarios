@@ -62,6 +62,13 @@ public class Menu extends JFrame {
         // Botón para editar producto
         JButton editButton = new JButton("Editar producto");
         editButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        editButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                EditarProducto editarProducto = new EditarProducto(gestorDeProductos); // Crear ventana de edición
+                editarProducto.setVisible(true); // Mostrar la ventana
+            }
+        });
         gbc.gridx = 0;
         gbc.gridy = 2;
         add(editButton, gbc);
