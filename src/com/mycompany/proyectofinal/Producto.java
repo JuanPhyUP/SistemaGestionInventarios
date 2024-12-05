@@ -1,14 +1,16 @@
+package com.mycompany.proyectofinal;
 
 public class Producto {
-    // Atributos de la clase Producto
+    // Atributos de la clase com.mycompany.proyectofinal.Producto
     private int id;
     private String nombre;
     private int cantidad;
     private double precio;
+    private String descripcion;
 
 
     /**
-     * Constructor de la clase Producto.
+     * Constructor de la clase com.mycompany.proyectofinal.Producto.
      *
      * @param id       El ID del producto.
      * @param nombre   El nombre del producto.
@@ -66,6 +68,9 @@ public class Producto {
         System.out.println("Cantidad: " + cantidad);
         System.out.println("Precio: $" + precio);
 
+    }
+    public String getDescripcion() {
+        return descripcion;
     }
 }
 
