@@ -65,6 +65,12 @@ public class AñadirProducto extends JFrame {
             double precio = Double.parseDouble(precioField.getText());
             int cantidad = Integer.parseInt(cantidadField.getText()); // Obtener cantidad
 
+            // Verificar si el ID ya existe en el gestor de productos
+            if (gestorDeProductos.existeProductoConID(id)) {
+                JOptionPane.showMessageDialog(this, "El ID del producto ya existe. No se pueden agregar productos duplicados.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
             // Crear un nuevo producto con el ID, nombre, precio y cantidad
             Producto nuevoProducto = new Producto(id, nombre, cantidad, precio);
             gestorDeProductos.agregarProducto(nuevoProducto);
@@ -80,4 +86,5 @@ public class AñadirProducto extends JFrame {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID, precio y cantidad válidos.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
 }

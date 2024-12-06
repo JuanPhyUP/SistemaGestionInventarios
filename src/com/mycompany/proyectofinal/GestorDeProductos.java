@@ -69,6 +69,16 @@ public class GestorDeProductos {
     public void borrarProducto(int id) {
         productos.removeIf(producto -> producto.getId() == id);
     }
+    public boolean existeProductoConID(int id) {
+        // Suponiendo que los productos están almacenados en una lista llamada "productos"
+        for (Producto producto : productos) {
+            if (producto.getId() == id) {
+                return true; // El ID ya existe
+            }
+        }
+        return false; // El ID no existe
+    }
+
 }
 
 
