@@ -15,7 +15,7 @@ public class Menu extends JFrame {
 
     private void initComponents() {
         setTitle("Gestor de Inventario");
-        setSize(300, 300);
+        setSize(500, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -23,11 +23,11 @@ public class Menu extends JFrame {
         gbc.insets = new Insets(10, 10, 10, 10); // Espaciado entre componentes
 
         // Título del menú
-        JLabel titleLabel = new JLabel("GESTOR DE INVENTARIO", JLabel.CENTER);
-        titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 18));
+        JLabel titleLabel = new JLabel("   GESTOR DE INVENTARIO", JLabel.CENTER);
+        titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 20));
         gbc.gridx = 0;
         gbc.gridy = 0;
-        gbc.gridwidth = 2;
+        gbc.gridwidth = 15;
         add(titleLabel, gbc);
 
         // Botón para añadir producto
@@ -55,7 +55,7 @@ public class Menu extends JFrame {
                 listarProductos.setVisible(true);
             }
         });
-        gbc.gridx = 1;
+        gbc.gridx = 2;
         gbc.gridy = 1;
         add(viewButton, gbc);
 
@@ -76,7 +76,7 @@ public class Menu extends JFrame {
         // Botón para calcular valor del inventario
         JButton valueButton = new JButton("Valor inventario");
         valueButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        gbc.gridx = 1;
+        gbc.gridx = 2;
         gbc.gridy = 2;
         add(valueButton, gbc);
 
@@ -103,14 +103,28 @@ public class Menu extends JFrame {
                 System.exit(0);
             }
         });
-        gbc.gridx = 1;
+        gbc.gridx = 2;
         gbc.gridy = 3;
         add(exitButton, gbc);
+
+        JButton acercaDeButton = new JButton("Acerca de");
+        acercaDeButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        acercaDeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AcercaDe acercaDe = new AcercaDe();
+                acercaDe.setVisible(true);
+            }
+        });
+        gbc.gridx = 1;
+        gbc.gridy = 4;
+        add(acercaDeButton, gbc);
 
         // Configuración de la ventana
         setLocationRelativeTo(null); // Centrar la ventana
         setResizable(false); // No permitir redimensionar
     }
+
     public static void main(String[] args) {
         // Crear una instancia del menú y hacerlo visible
         Menu menu = new Menu();
