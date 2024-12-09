@@ -1,6 +1,6 @@
-package com.mycompany.proyectofinal;
+package com.mycompany.proyectofinal.Main;
 
-import com.mycompany.proyectofinal.Producto;
+import com.mycompany.proyectofinal.Main.Producto;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package com.mycompany.proyectofinal;
+package com.mycompany.proyectofinal.Main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -55,9 +55,5 @@ public class AcercaDe extends JFrame {
 
         // Agregar panel principal a la ventana
         add(panelPrincipal);
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new AcercaDe().setVisible(true));
     }
 }

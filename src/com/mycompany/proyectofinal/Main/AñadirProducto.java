@@ -1,6 +1,4 @@
-package com.mycompany.proyectofinal;
-import com.mycompany.proyectofinal.GestorDeProductos;
-import com.mycompany.proyectofinal.Producto;
+package com.mycompany.proyectofinal.Main;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,4 +1,4 @@
-package com.mycompany.proyectofinal;
+package com.mycompany.proyectofinal.Main;
 
 public class Producto {
     // Atributos de la clase com.mycompany.proyectofinal.Producto
