@@ -29,12 +29,6 @@ Este proyecto tiene como objetivo desarrollar un sistema que permita gestionar e
 1. Tener instalado [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html) (versión 8 o superior).
 2. Un IDE compatible con Java, como [Eclipse](https://www.eclipse.org/) o [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 
-## Objetivos de Aprendizaje
-- Uso de estructuras secuenciales y de control (`if`, `switch`).
-- Modularización del código mediante funciones.
-- Implementación de listas o arreglos para almacenar productos.
-- Manejo de entrada y salida de datos en consola.
-
 ## Instrucciones de Configuración
 1. **Clonar o descargar el repositorio:** Extrae los archivos del proyecto en una carpeta local.
 2. **Configurar las librerías externas:**
