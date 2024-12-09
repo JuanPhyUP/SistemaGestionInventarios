@@ -13,7 +13,7 @@ public class AcercaDe extends JFrame {
     private void configurarVentana() {
         setTitle("Acerca de");
         setSize(600, 400);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false); // Evitar cambio de tamaño
     }

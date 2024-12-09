@@ -1,5 +1,7 @@
 package com.mycompany.proyectofinal;
 
+import com.mycompany.proyectofinal.Producto;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -69,8 +71,9 @@ public class GestorDeProductos {
     public void borrarProducto(int id) {
         productos.removeIf(producto -> producto.getId() == id);
     }
+
+    // Método para verificar si existe un producto con un ID específico
     public boolean existeProductoConID(int id) {
-        // Suponiendo que los productos están almacenados en una lista llamada "productos"
         for (Producto producto : productos) {
             if (producto.getId() == id) {
                 return true; // El ID ya existe
@@ -79,6 +82,15 @@ public class GestorDeProductos {
         return false; // El ID no existe
     }
 
+    // Método para buscar un producto por nombre
+    public Producto buscarProductoPorNombre(String nombre) {
+        for (Producto producto : productos) {
+            if (producto.getNombre().equalsIgnoreCase(nombre)) {
+                return producto; // Devuelve el producto si se encuentra
+            }
+        }
+        return null; // Devuelve null si no se encuentra el producto
+    }
 }
 
 

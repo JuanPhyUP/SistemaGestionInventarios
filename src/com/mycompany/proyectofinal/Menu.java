@@ -74,12 +74,31 @@ public class Menu extends JFrame {
         add(editButton, gbc);
 
         // Botón para calcular valor del inventario
-        JButton valueButton = new JButton("Valor inventario");
-        valueButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        JButton calcularValorProductoButton = new JButton("Valor producto");
+        calcularValorProductoButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        calcularValorProductoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ValorInventario valorProducto = new ValorInventario(gestorDeProductos);
+                valorProducto.mostrarValorProducto(); // Llama al método para mostrar el inventario
+            }
+        });
         gbc.gridx = 2;
         gbc.gridy = 2;
-        add(valueButton, gbc);
+        add(calcularValorProductoButton, gbc);
 
+        JButton calcularValorTotalButton = new JButton("Valor inventario");
+        calcularValorTotalButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        calcularValorTotalButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ValorInventario valorInventario = new ValorInventario(gestorDeProductos);
+                valorInventario.mostrarValorTotalInventario(); // Llama al método para mostrar el inventario
+            }
+        });
+        gbc.gridx = 2;
+        gbc.gridy = 3;
+        add(calcularValorTotalButton, gbc);
         // Botón para eliminar producto
         JButton deleteButton = new JButton("Eliminar producto");
         deleteButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
@@ -94,18 +113,7 @@ public class Menu extends JFrame {
         gbc.gridy = 3;
         add(deleteButton, gbc);
 
-        // Botón para salir
-        JButton exitButton = new JButton("Salir");
-        exitButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        exitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
-        gbc.gridx = 2;
-        gbc.gridy = 3;
-        add(exitButton, gbc);
+
 
         JButton acercaDeButton = new JButton("Acerca de");
         acercaDeButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
