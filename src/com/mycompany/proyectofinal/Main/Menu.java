@@ -5,14 +5,26 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Clase principal para el menú de la aplicación de gestión de inventario.
+ * Proporciona opciones para añadir, ver, editar, eliminar productos y más.
+ */
 public class Menu extends JFrame {
-    private GestorDeProductos gestorDeProductos; // Agregar gestor de productos
 
+    private GestorDeProductos gestorDeProductos; // Referencia al gestor de productos
+
+    /**
+     * Constructor de la clase Menu.
+     * Inicializa el gestor de productos y configura los componentes de la interfaz.
+     */
     public Menu() {
         this.gestorDeProductos = new GestorDeProductos(); // Inicializar gestor de productos
         initComponents();
     }
 
+    /**
+     * Método para inicializar los componentes de la interfaz gráfica del menú.
+     */
     private void initComponents() {
         setTitle("Gestor de Inventario");
         setSize(500, 400);
@@ -87,6 +99,7 @@ public class Menu extends JFrame {
         gbc.gridy = 2;
         add(calcularValorProductoButton, gbc);
 
+        // Botón para calcular el valor total del inventario
         JButton calcularValorTotalButton = new JButton("Valor inventario");
         calcularValorTotalButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         calcularValorTotalButton.addActionListener(new ActionListener() {
@@ -99,22 +112,22 @@ public class Menu extends JFrame {
         gbc.gridx = 2;
         gbc.gridy = 3;
         add(calcularValorTotalButton, gbc);
+
         // Botón para eliminar producto
         JButton deleteButton = new JButton("Eliminar producto");
         deleteButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         deleteButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 EliminarProducto eliminarProducto = new EliminarProducto(gestorDeProductos);
-              eliminarProducto.setVisible(true);
+                eliminarProducto.setVisible(true);
             }
         });
         gbc.gridx = 0;
         gbc.gridy = 3;
         add(deleteButton, gbc);
 
-
-
+        // Botón Acerca de
         JButton acercaDeButton = new JButton("Acerca de");
         acercaDeButton.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         acercaDeButton.addActionListener(new ActionListener() {
@@ -133,8 +146,12 @@ public class Menu extends JFrame {
         setResizable(false); // No permitir redimensionar
     }
 
+    /**
+     * Método principal que inicia la aplicación.
+     *
+     * @param args Argumentos de la línea de comandos (no utilizados).
+     */
     public static void main(String[] args) {
-        // Crear una instancia del menú y hacerlo visible
         Menu menu = new Menu();
         menu.setVisible(true);
     }

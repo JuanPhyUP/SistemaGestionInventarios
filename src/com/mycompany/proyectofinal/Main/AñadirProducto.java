@@ -1,3 +1,7 @@
+/**
+ * Clase para gestionar la ventana de "Añadir Producto".
+ * Permite a los usuarios agregar nuevos productos al inventario mediante un formulario.
+ */
 package com.mycompany.proyectofinal.Main;
 
 import javax.swing.*;
@@ -6,17 +10,25 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AñadirProducto extends JFrame {
-    private JTextField idField; // Campo para el ID
-    private JTextField nombreField; // Campo para el nombre
-    private JTextField precioField; // Campo para el precio
-    private JTextField cantidadField; // Campo para la cantidad
-    private GestorDeProductos gestorDeProductos;
 
+    private JTextField idField; // Campo para el ID del producto
+    private JTextField nombreField; // Campo para el nombre del producto
+    private JTextField precioField; // Campo para el precio del producto
+    private JTextField cantidadField; // Campo para la cantidad del producto
+    private GestorDeProductos gestorDeProductos; // Referencia al gestor de productos
+
+    /**
+     * Constructor de la clase AñadirProducto.
+     * @param gestorDeProductos el gestor de productos que almacena los datos del inventario.
+     */
     public AñadirProducto(GestorDeProductos gestorDeProductos) {
         this.gestorDeProductos = gestorDeProductos;
         initComponents();
     }
 
+    /**
+     * Inicializa los componentes gráficos de la ventana.
+     */
     private void initComponents() {
         setTitle("Añadir Producto");
         setSize(300, 250);
@@ -56,6 +68,10 @@ public class AñadirProducto extends JFrame {
         add(addButton);
     }
 
+    /**
+     * Lógica para agregar un nuevo producto al inventario.
+     * Verifica la validez de los datos ingresados y evita duplicados de ID.
+     */
     private void agregarProducto() {
         try {
             int id = Integer.parseInt(idField.getText()); // Obtener ID
@@ -84,5 +100,4 @@ public class AñadirProducto extends JFrame {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID, precio y cantidad válidos.", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-
 }

@@ -7,16 +7,30 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
+/**
+ * Clase EditarProducto.
+ * Esta clase proporciona una interfaz gráfica para editar productos existentes
+ * en el gestor de productos.
+ */
 public class EditarProducto extends JFrame {
     private GestorDeProductos gestorDeProductos; // Referencia al gestor de productos
     private JTable tablaProductos; // Tabla para mostrar los productos
     private DefaultTableModel modeloTabla; // Modelo de la tabla
 
+    /**
+     * Constructor de la clase EditarProducto.
+     * Inicializa la ventana y los componentes gráficos.
+     *
+     * @param gestorDeProductos el gestor de productos que contiene los datos a editar.
+     */
     public EditarProducto(GestorDeProductos gestorDeProductos) {
         this.gestorDeProductos = gestorDeProductos; // Inicializar gestor de productos
         initComponents();
     }
 
+    /**
+     * Configura los componentes gráficos de la ventana.
+     */
     private void initComponents() {
         setTitle("Editar Producto");
         setSize(600, 400);
@@ -51,6 +65,9 @@ public class EditarProducto extends JFrame {
         cargarProductos();
     }
 
+    /**
+     * Carga los productos desde el gestor y los muestra en la tabla.
+     */
     private void cargarProductos() {
         modeloTabla.setRowCount(0); // Limpiar la tabla antes de cargar
         List<Producto> productos = gestorDeProductos.getProductos(); // Obtener productos
@@ -64,6 +81,10 @@ public class EditarProducto extends JFrame {
         }
     }
 
+    /**
+     * Permite editar un producto seleccionado en la tabla.
+     * Abre un cuadro de diálogo para modificar los datos del producto.
+     */
     private void editarProducto() {
         int selectedRow = tablaProductos.getSelectedRow(); // Obtener la fila seleccionada
         if (selectedRow != -1) {
