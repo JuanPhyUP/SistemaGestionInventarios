@@ -43,6 +43,9 @@ Este proyecto tiene como objetivo desarrollar un sistema que permita gestionar e
 
 ## Créditos
 Este proyecto fue desarrollado como una solución para la gestión eficiente de inventarios.
+## Link de descarga proyecto
+ Link:https://www.mediafire.com/file/6kg142ei3g4suxx/SistemaGestionInventario.jar/file
+
 
 
 
