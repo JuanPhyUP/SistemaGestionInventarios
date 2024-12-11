@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SistemaGestionInventario:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SistemaGestionInventario_jar</output-path>
+    <root id="archive" name="SistemaGestionInventario.jar">
+      <element id="module-output" name="SistemaGestionInventario" />
+    </root>
+  </artifact>
+</component>
